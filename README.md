@@ -2,6 +2,9 @@
 
 [![CI](https://github.com/AzhuTech/agent-rules/actions/workflows/ci.yml/badge.svg)](https://github.com/AzhuTech/agent-rules/actions/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+[![Docs: 中文](https://img.shields.io/badge/docs-中文-yellow.svg)](README.zh-CN.md)
+
+English | [中文](README.zh-CN.md)
 
 Generate repo-aware instructions for Codex, Claude Code, Cursor, and other AI coding agents.
 
@@ -93,6 +96,14 @@ AI coding agents are much better when repositories tell them the local rules: co
 - monorepo package mapping
 - template packs for frontend, Python, Go, Rust, docs, and data projects
 - optional LLM-assisted rule refinement
+
+## 中文
+
+`agent-rules` 会扫描仓库，并为 Codex、Claude Code、Cursor 等 AI coding agents 生成仓库规则文件，例如 `AGENTS.md`、`CLAUDE.md` 和 Cursor rules。
+
+目标很简单：让 AI agent 在修改代码之前先理解项目命令、目录结构、测试方式和维护约定。
+
+中文文档见 [README.zh-CN.md](README.zh-CN.md)。
 
 ## License
 
