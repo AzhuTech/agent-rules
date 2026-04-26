@@ -1,8 +1,11 @@
 # agent-rules
 
-Generate repository-specific instructions for AI coding agents.
+[![CI](https://github.com/AzhuTech/agent-rules/actions/workflows/ci.yml/badge.svg)](https://github.com/AzhuTech/agent-rules/actions/workflows/ci.yml)
+[![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 
-`agent-rules` scans a project and creates practical guidance files such as `AGENTS.md`, `CLAUDE.md`, and Cursor rules. The goal is simple: make AI coding agents understand how your repo is built, tested, and maintained before they edit code.
+Generate repo-aware instructions for Codex, Claude Code, Cursor, and other AI coding agents.
+
+Most coding agents start a repository half blind. `agent-rules` scans your project and creates practical guidance files such as `AGENTS.md`, `CLAUDE.md`, and Cursor rules so agents know your commands, layout, and conventions before editing.
 
 ## Quickstart
 
@@ -10,11 +13,27 @@ Generate repository-specific instructions for AI coding agents.
 npx @azhutech/agent-rules init
 ```
 
-Local development:
+Preview every supported output without writing files:
 
 ```bash
 node ./src/cli.js init --target all --dry-run
 ```
+
+## Why It Helps
+
+Before:
+
+- agents guess the package manager
+- agents skip project-specific test commands
+- agents edit generated or dependency folders
+- every new AI tool needs another hand-written instruction file
+
+After:
+
+- one scan creates starter instructions for multiple tools
+- generated files include detected commands and notable paths
+- maintainers get a clear baseline they can review and edit
+- future agent sessions start with local context
 
 ## What It Detects
 
@@ -42,6 +61,24 @@ agent-rules init --force
 - `AGENTS.md` for Codex and general agent tooling
 - `CLAUDE.md` for Claude Code
 - `.cursor/rules/agent-rules.mdc` for Cursor
+
+Example output:
+
+```md
+# Agent Instructions
+
+## Repository Profile
+
+- Project: agent-rules
+- Languages: TypeScript/JavaScript
+- Package manager: npm
+- README present: yes
+- Tests detected: yes
+
+## Useful Commands
+
+- `npm run test`
+```
 
 ## Why This Exists
 
